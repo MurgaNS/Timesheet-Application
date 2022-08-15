@@ -6,11 +6,12 @@ Timesheet zadatak za kandidate
 
 The user logs in using an e-mail address and password, also user should be able to log out from the site.
 
-There are 2 types of users: admin and worker.
+There are 2 types of users: admin, team leader and worker.
 
-Allow the user to change their password and (export their data???).
+Allow the user to change their password and export their data.
 
 ADMIN ***
+
 Clients:
 Allow the admin to have an overview of all clients, to create a new client by entering: client name, address, city,
 zip/postal code and country. Admin should be able to change already
@@ -19,7 +20,7 @@ search field.
 
 Projects:
 Allow the admin to have an overview of all project, to create a new project by entering: project name, project
-description, to select client and to select team leader. Admin should be
+description, select client, team leader and to select status(active, inactive, archive). Admin should be
 able to change already created project and to delete them. Admin can filter projects by project name and to search them
 by typing name in search field.
 
@@ -36,28 +37,28 @@ Admin doesn't have an option to set the password for new user. He can only enter
 will be sent, where the user will be able
 to set the desired password
 
-USER(team leader, worker) and ADMIN***
+
+Team leader, worker and ADMIN***
 Timesheet:
-Allow the user or admin to see his own timesheet for month in the table with all days in current month. User or admin
-can switch between months.
-User or admin should be able to see how many hours he worked on which day of the month and see the total number of
+Allow the team leader,worker or admin to see his own timesheet for month in the table with all days in current month. They can switch between months.
+They should be able to see how many hours he worked on which day of the month and see the total number of
 working hours for selected month.
-when the user or admin clicks on the hours in a certain date, allow them to send report by selecting necessary fields(
-client, project, category, hours) and optional
-fields(description and overtime). After filling fields, allow the user or admin to save the changes and send report.
-User or admin can switch left and right for the previous and next week, to select days in the selected week and to go
+when they click on the hours in a certain date, allow them to send report by selecting necessary fields(
+client, project, category, hours) and optional fields(description and overtime). After filling fields, allow them to save the changes and send report.
+They can switch left and right for the previous and next week, to select days in the selected week and to go
 back to monthly view.
 
-USER(team leader) and ADMIN***
+
+Team leader and ADMIN***
 Reports:
-Allow the admin and user(team leader) to have an overview of all reports and to filter them by: selecting an employee,
-client, project and category. Also, admin should be able to search reports by
+Allow the admin and team leader to have an overview of all reports and to filter them by: selecting an employee,
+client, project and category. Also, to search reports by
 quick date by week(this week, next week, last week), quick date by month(this month, next month, last month), start date
 and end date.
 Admin, and team leader should be able to reset all filter options, to search and to search overtime.
 When the search is finished, it should display some table with the data(date, employees, projects, categories,
 description and time). Bellow table should be number of all reports found.
-After displaying all the requested data, enable the print of that report, create pdf and export to excel.
+After displaying all the requested data, create options for: print of that report, create pdf and export to excel.
 
 
 
