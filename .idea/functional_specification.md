@@ -10,7 +10,9 @@
 1. There are 2 types of users:
    - admin
    - worker.
-2. System should allow user to change their password and export their data.
+
+### User profile
+1. System should allow user to change their password and export their data.
 
 
 ### Clients
@@ -22,8 +24,9 @@
 - *City,zip/postal code*
 - *Country.*
 
-3. System should allow the admin to change already created client and to delete them.
-4. System should allow admin to filter clients by clicking on the desired initial letter of the client name and to search them by typing their name in
+3. System should allow the admin to change already created client
+4. System should allow the admin to logically delete clients.
+5. System should allow admin to filter clients by clicking on the desired initial letter of the client name and to search them by typing their name in
    search field.
 
 
@@ -38,8 +41,8 @@
 - *select client*
 - *set the team leader*
 
-3. System should allow admin to change already created project, including **project status(active, inactive, archive)** and
-   to delete them.
+3. System should allow admin to change already created project, including **project status(active, inactive, archive)** 
+4. System should allow admin to logically delete existing projects.
 
 4. System should allow admin to filter projects by clicking on the desired initial letter of the project name and to search them by typing project name in search field.
 
@@ -53,7 +56,8 @@
 
 3. System should allow the admin to change already created category and to delete them.
 
-4. System should allow admin to filter categories by clicking on the desired initial letter of the category name and to search them by typing category name in search field.
+4. System should allow admin to filter categories by clicking on the desired initial letter of the category name.
+5. System should allow admin to search categories by typing category name in search field..
 
 
 ### Employees
@@ -74,14 +78,15 @@
     - *worker*
 
 
-- **Side effect!!**
-    - Admin enters all necessary data to add a new user except password.
-    - The user will receive a link to the e-mail address specified by the administrator through which he can set his own password.
+3. Admin enters all necessary data to add a new user except password. 
+4. The user will receive a link to the e-mail address specified by the administrator.
+5. When the user enters the received link, he gets the opportunity to enter the desired password and confirm it.
 
-3. System should allow admin to:
-- change already created employee including employee status and role,
-- to delete them
-- to change their password.
+
+6. System should allow admin to:
+   1. change already created employee including employee status and role,
+   2. to logically delete them
+   3. to change their password.
 
 
 ### Timesheet
