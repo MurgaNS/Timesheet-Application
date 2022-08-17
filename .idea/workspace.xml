@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="705caf91-cce1-42e1-8102-40dffaed2153" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/functional_specification.md" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/functional_specification.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/nemanja.murgaski/IdeaProjects/timesheet",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "vcs.Git",
     "spring.configuration.checksum": "f4f458161b007ebd8a00df75d428b8bd"
@@ -61,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660557965830</updated>
       <workItem from="1660557967183" duration="13397000" />
-      <workItem from="1660633131981" duration="6580000" />
+      <workItem from="1660633131981" duration="14302000" />
     </task>
     <servers />
   </component>
