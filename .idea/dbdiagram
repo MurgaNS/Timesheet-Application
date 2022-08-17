@@ -56,7 +56,7 @@ Table categories {
   }
 }
 
-Table report {
+Table work_log {
   id long [pk]
   date date //check
   client_id long [ref: > clients.id]
