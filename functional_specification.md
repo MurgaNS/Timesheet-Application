@@ -98,12 +98,12 @@
 ### Timesheet days report
 1. When users clicks on the hours number in a certain date, system should allow them to send report by selecting:
 
-|necessary fields
+|necessary fields|
   |:---
-|Client
-|Project
-|Category
-|Hours
+|Client|
+|Project|
+|Category|
+|Hours|
 
 and
 
@@ -157,6 +157,10 @@ and
    - export to excel.
 
 ### *Non-functional requirements*
+
+- Administrator can see and search all reports
+
+- Team leader can see only his team member reports
 
 - Implement restrictions and procedures for checking the validity of the data.
 
