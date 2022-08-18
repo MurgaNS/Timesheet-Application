@@ -98,12 +98,12 @@
 ### Timesheet days report
 1. When users clicks on the hours number in a certain date, system should allow them to send report by selecting:
 
-|necessary fields
+|necessary fields|
   |:---
-|Client
-|Project
-|Category
-|Hours
+|Client|
+|Project|
+|Category|
+|Hours|
 
 and
 
