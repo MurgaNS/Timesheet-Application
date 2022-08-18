@@ -158,6 +158,10 @@ and
 
 ### *Non-functional requirements*
 
+- Administrator can see and search all reports
+
+- Team leader can see only his team member reports
+
 - Implement restrictions and procedures for checking the validity of the data.
 
 - Data about clients, projects and categories cannot be accessed by users who do not have the administrator role.
