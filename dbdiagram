@@ -9,25 +9,21 @@ Table client {
 }
 
 Table project_employee {
-  project_id long
-  employee_id long
+  project_id long [ref: > public.project.id]
+  employee_id long [ref: > public.employee.id]
 }
 
 Table lead_employee {
-  lead_id long
-  employee_id long
+  project_id long [ref: > public.project.id]
+  employee_id long [ref: > public.employee.id]
 }
-
-
 
 
 Table project {
   id long [pk]
   name varchar
   description varchar
-  employee_id long [ref: <> public.employee.id]
   client_id long [ref: > public.client.id]
-  lead long [ref: <> public.employee.id]
   status projects_status
     Indexes {
     (name, client_id) [unique]
