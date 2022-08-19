@@ -1,54 +1,17 @@
 package com.vegait.timesheet.model;
-
-import lombok.Data;
-import lombok.Getter;
-
 import javax.persistence.*;
 
-@Entity
-public class Client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false, unique = true)
-    private String name;
-    @Column
+public class Client extends Base {
     private String address;
     private String city;
-    private Integer postal_code;
-
-    @ManyToOne
-    @JoinColumn(name = "country_id")
+    private String postalCode;
     private Country country;
 
-
-    public Client(Long id, String name, String address, String city, Integer postal_code, Country country) {
-        this.id = id;
-        this.name = name;
+    public Client(String address, String city, String postalCode, Country country) {
         this.address = address;
         this.city = city;
-        this.postal_code = postal_code;
+        this.postalCode = postalCode;
         this.country = country;
-    }
-
-    public Client() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getAddress() {
@@ -67,12 +30,12 @@ public class Client {
         this.city = city;
     }
 
-    public Integer getPostal_code() {
-        return postal_code;
+    public String getPostalCode() {
+        return postalCode;
     }
 
-    public void setPostal_code(Integer postal_code) {
-        this.postal_code = postal_code;
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public Country getCountry() {
