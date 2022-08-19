@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="705caf91-cce1-42e1-8102-40dffaed2153" name="Changes" comment="">
-<<<<<<< HEAD
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/functional_specification.md" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/functional_specification.md" afterDir="false" />
->>>>>>> 1fdcb48c4e732dc6e6750bd6fa1cdffb9c6156f4
+    <list default="true" id="3954b3c5-c929-45f4-ae40-fc84996484e8" name="Changes" comment="Generated spring boot project is inserted into the timesheet folder">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +17,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -32,26 +43,33 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2DO6pOKQ7prqsttC6HcQzuv1WbU" />
+  <component name="ProjectId" id="2DWz859DWDBaASiqyW8peA2ayV9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/nemanja.murgaski/IdeaProjects/timesheet",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "database.query.execution",
     "spring.configuration.checksum": "f4f458161b007ebd8a00df75d428b8bd"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="TimesheetApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="timesheet" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="vega.it.timesheet.TimesheetApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.vegait.timesheet.TimesheetApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -60,20 +78,22 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="705caf91-cce1-42e1-8102-40dffaed2153" name="Changes" comment="" />
-      <created>1660557965830</created>
+      <changelist id="3954b3c5-c929-45f4-ae40-fc84996484e8" name="Changes" comment="" />
+      <created>1660829471772</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1660557965830</updated>
-      <workItem from="1660557967183" duration="13397000" />
-<<<<<<< HEAD
-      <workItem from="1660633131981" duration="18366000" />
-      <workItem from="1660722844300" duration="136000" />
-      <workItem from="1660722995353" duration="36000" />
-=======
-      <workItem from="1660633131981" duration="14302000" />
->>>>>>> 1fdcb48c4e732dc6e6750bd6fa1cdffb9c6156f4
+      <updated>1660829471772</updated>
+      <workItem from="1660829474887" duration="320000" />
+      <workItem from="1660829814011" duration="12970000" />
     </task>
+    <task id="LOCAL-00001" summary="Generated spring boot project is inserted into the timesheet folder">
+      <created>1660830203178</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660830203178</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,5 +109,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Generated spring boot project is inserted into the timesheet folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generated spring boot project is inserted into the timesheet folder" />
   </component>
 </project>
