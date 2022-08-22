@@ -1,8 +1,15 @@
 package com.vegait.timesheet.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public abstract class Base {
-    private Long id;
-    private String name;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
+    protected String name;
 
     public Long getId() {
         return id;

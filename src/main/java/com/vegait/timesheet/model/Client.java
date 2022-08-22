@@ -8,6 +8,7 @@ public class Client extends Base {
     private Country country;
 
     public Client(String address, String city, String postalCode, Country country) {
+        super();
         this.address = address;
         this.city = city;
         this.postalCode = postalCode;

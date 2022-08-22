@@ -9,9 +9,9 @@ public class Country extends Base{
     private String countryCode;
 
     public Country(String countryCode) {
+        super();
         this.countryCode = countryCode;
     }
-
 
     public String getCountryCode() {
         return countryCode;
