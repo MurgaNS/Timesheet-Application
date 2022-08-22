@@ -33,7 +33,7 @@ CREATE table project
 (
     id          BIGINT      NOT NULL AUTO_INCREMENT,
     name        VARCHAR(50) NOT NULL,
-    description VARCHAR(65535),
+    description VARCHAR(10000),
     client_id   BIGINT UNIQUE,
     status      VARCHAR(20),
     PRIMARY KEY (id),
