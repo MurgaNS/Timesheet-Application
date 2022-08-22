@@ -1,5 +1,8 @@
 package com.vegait.timesheet.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Country extends Base {
 
     private String countryCode;
