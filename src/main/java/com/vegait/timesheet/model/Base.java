@@ -9,7 +9,17 @@ public abstract class Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
+
+
     protected String name;
+
+    public Base(String name) {
+        this.name = name;
+    }
+
+    public Base() {
+
+    }
 
     public Long getId() {
         return id;

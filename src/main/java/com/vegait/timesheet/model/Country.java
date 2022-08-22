@@ -1,16 +1,16 @@
 package com.vegait.timesheet.model;
 
-import lombok.Data;
-
-import javax.persistence.*;
-
-public class Country extends Base{
+public class Country extends Base {
 
     private String countryCode;
 
-    public Country(String countryCode) {
-        super();
+    public Country(String name, String countryCode) {
+        super(name);
         this.countryCode = countryCode;
+    }
+
+    public Country() {
+
     }
 
     public String getCountryCode() {

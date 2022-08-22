@@ -1,5 +1,4 @@
 package com.vegait.timesheet.model;
-import javax.persistence.*;
 
 public class Client extends Base {
     private String address;
@@ -7,12 +6,16 @@ public class Client extends Base {
     private String postalCode;
     private Country country;
 
-    public Client(String address, String city, String postalCode, Country country) {
-        super();
+    public Client(String name, String address, String city, String postalCode, Country country) {
+        super(name);
         this.address = address;
         this.city = city;
         this.postalCode = postalCode;
         this.country = country;
+    }
+
+    public Client() {
+
     }
 
     public String getAddress() {
