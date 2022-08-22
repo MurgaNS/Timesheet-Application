@@ -21,9 +21,9 @@ CREATE table client
     address     VARCHAR(50),
     city        VARCHAR(40),
     postal_code VARCHAR(20),
-    country_id  BIGINT,
+    FK_country_id  BIGINT,
     PRIMARY KEY (id),
-    CONSTRAINT client_country_id FOREIGN KEY (country_id)
+    CONSTRAINT client_country_id FOREIGN KEY (FK_country_id)
         REFERENCES country (id)
 
 
@@ -34,10 +34,10 @@ CREATE table project
     id          BIGINT      NOT NULL AUTO_INCREMENT,
     name        VARCHAR(50) NOT NULL,
     description VARCHAR(10000),
-    client_id   BIGINT UNIQUE,
+    FK_client_id   BIGINT,
     status      VARCHAR(20),
     PRIMARY KEY (id),
-    CONSTRAINT project_client_id FOREIGN KEY (client_id)
+    CONSTRAINT project_client_id FOREIGN KEY (FK_client_id)
         REFERENCES client (id)
 
 );
@@ -60,39 +60,39 @@ CREATE table work_log
 (
     id          BIGINT        NOT NULL AUTO_INCREMENT,
     date        DATE,
-    client_id   BIGINT        NOT NULL,
-    project_id  BIGINT        NOT NULL,
-    category_id BIGINT        NOT NULL,
+    FK_client_id   BIGINT        NOT NULL,
+    FK_project_id  BIGINT        NOT NULL,
+    FK_category_id BIGINT        NOT NULL,
     description TEXT,
     hours       DECIMAL(4, 1) NOT NULL DEFAULT 0,
     overtime    DECIMAL(4, 1)          DEFAULT 0,
     PRIMARY KEY (id),
-    CONSTRAINT work_log_client_id FOREIGN KEY (client_id)
+    CONSTRAINT work_log_client_id FOREIGN KEY (FK_client_id)
         REFERENCES client (id),
-    CONSTRAINT work_log_project_id FOREIGN KEY (project_id)
+    CONSTRAINT work_log_project_id FOREIGN KEY (FK_project_id)
         REFERENCES project (id),
-    CONSTRAINT work_log_category_id FOREIGN KEY (category_id)
+    CONSTRAINT work_log_category_id FOREIGN KEY (FK_category_id)
         REFERENCES category (id)
 
 );
 
 CREATE table project_employee
 (
-    project_id  BIGINT NOT NULL,
-    employee_id BIGINT NOT NULL,
-    CONSTRAINT project_employee_project_id FOREIGN KEY (project_id)
+    FK_project_id  BIGINT NOT NULL,
+    FK_employee_id BIGINT NOT NULL,
+    CONSTRAINT project_employee_project_id FOREIGN KEY (FK_project_id)
         REFERENCES project (id),
-    CONSTRAINT project_employee_employee_id FOREIGN KEY (employee_id)
+    CONSTRAINT project_employee_employee_id FOREIGN KEY (FK_employee_id)
         REFERENCES employee (id)
 );
 
 CREATE table lead_employee
 (
-    project_id  BIGINT NOT NULL,
-    employee_id BIGINT NOT NULL,
-    CONSTRAINT lead_employee_project_id FOREIGN KEY (project_id)
+    FK_project_id  BIGINT NOT NULL,
+    FK_employee_id BIGINT NOT NULL,
+    CONSTRAINT lead_employee_project_id FOREIGN KEY (FK_project_id)
         REFERENCES project (id),
-    CONSTRAINT lead_employee_employee_id FOREIGN KEY (employee_id)
+    CONSTRAINT lead_employee_employee_id FOREIGN KEY (FK_employee_id)
         REFERENCES employee (id)
 );
 
