@@ -1,17 +1,21 @@
-package com.vegait.timesheet.model.dto.request;
-
+package com.vegait.timesheet.model.dto.response;
 import com.vegait.timesheet.model.Country;
-
-
-
 public class ClientDTO {
 
+    private Long id;
     private String name;
     private String address;
     private String city;
     private String postalCode;
     private Country country;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

@@ -1,11 +1,15 @@
 package com.vegait.timesheet.service.impl;
 
 import com.vegait.timesheet.model.Client;
+import com.vegait.timesheet.model.Country;
+import com.vegait.timesheet.model.dto.request.CountryDetails;
 import com.vegait.timesheet.repository.ClientRepository;
+import com.vegait.timesheet.repository.CountryRepository;
 import com.vegait.timesheet.service.ClientService;
-import org.springframework.data.domain.Page;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -13,33 +17,36 @@ public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
 
-    public ClientServiceImpl(ClientRepository clientRepository) {
+    private final CountryRepository countryRepository;
+
+    public ClientServiceImpl(ClientRepository clientRepository, CountryRepository countryRepository) {
         this.clientRepository = clientRepository;
+        this.countryRepository = countryRepository;
     }
 
     @Override
     public List<Client> getAll(Pageable pageable, String letter, String name) {
-        Page<Client> pagedResult;
-        if(letter != null) {
-            pagedResult = clientRepository.findClientsByNameStartsWith(pageable, letter);
 
-        }
-        else if (name != null) {
-            pagedResult = clientRepository.findClientsByName(name, pageable);
-        }
-        else{
-            pagedResult = clientRepository.findAll(pageable);
-
-        }
-        return pagedResult.getContent();
+        return clientRepository.filterAll(pageable, letter, name).getContent();
 
     }
 
     @Override
-    public Client save(Client client) {
+    public Client save(String name, String address, String city, String postalCode, CountryDetails countryDetails) {
+        if (clientRepository.existsByName(name)) {
+            throw new RuntimeException("there cannot be 2 clients with the same name");
+        }
+        Country country = countryRepository.findCountryByCountryCode(countryDetails.getCountryCode())
+                .orElse(countryRepository.save(
+                                new Country(
+                                        countryDetails.getName(),
+                                        countryDetails.getCountryCode())
+                        )
+                );
+        Client client = new Client(name, address, city, postalCode, country);
+
         return clientRepository.save(client);
+
     }
-
-
 
 }
