@@ -1,5 +1,6 @@
 package com.vegait.timesheet.model;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -8,7 +9,7 @@ public class Client extends Base {
     private String address;
     private String city;
     private String postalCode;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id",referencedColumnName = "id")
     private Country country;
 

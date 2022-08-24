@@ -5,10 +5,10 @@ import com.vegait.timesheet.exception.NotFoundException;
 import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.Country;
 import com.vegait.timesheet.model.dto.request.ClientRequest;
-import com.vegait.timesheet.model.dto.request.CountryDetails;
 import com.vegait.timesheet.repository.ClientRepository;
 import com.vegait.timesheet.repository.CountryRepository;
 import com.vegait.timesheet.service.ClientService;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -20,9 +20,12 @@ public class ClientServiceImpl implements ClientService {
 
     private final CountryRepository countryRepository;
 
-    public ClientServiceImpl(ClientRepository clientRepository, CountryRepository countryRepository) {
+    private final ModelMapper modelMapper;
+
+    public ClientServiceImpl(ClientRepository clientRepository, CountryRepository countryRepository, ModelMapper modelMapper) {
         this.clientRepository = clientRepository;
         this.countryRepository = countryRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -33,18 +36,21 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client save(String name, String address, String city, String postalCode, CountryDetails countryDetails) {
-        if (clientRepository.existsByName(name)) {
+    public Client save(ClientRequest clientRequest) {
+
+
+        if (clientRepository.existsByName(clientRequest.getName())) {
             throw new ClientExistsException("There cannot be 2 clients with the same name");
         }
-        Country country = countryRepository.findCountryByCountryCode(countryDetails.getCountryCode())
+        Country country = countryRepository.findCountryByCountryCode(clientRequest.getCountry().getCountryCode())
                 .orElse(countryRepository.save(
                                 new Country(
-                                        countryDetails.getName(),
-                                        countryDetails.getCountryCode())
+                                        clientRequest.getCountry().getName(),
+                                        clientRequest.getCountry().getCountryCode())
                         )
                 );
-        Client client = new Client(name, address, city, postalCode, country);
+        Client client = modelMapper.map(clientRequest, Client.class);
+        client.setCountry(country);
 
         return clientRepository.save(client);
 

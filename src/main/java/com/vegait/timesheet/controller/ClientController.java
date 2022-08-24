@@ -31,8 +31,6 @@ public class ClientController {
                                                   @RequestParam(required = false) String name) {
 
         Page<Client> clients = clientService.getAll(pageable, letter, name);
-//        Page<ClientDTO> clientsDTO = objectMapper.convertValue(clients, new TypeReference<>() {});
-
         Page<ClientDTO> clientsDTO = ClientMapper.toDTOs(clients);
         return new ResponseEntity<>(clientsDTO, HttpStatus.OK);
 
@@ -40,17 +38,8 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<ClientDTO> add(@RequestBody ClientRequest request) {
-//        if (client == null) {
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-        Client client = clientService.save(
-                request.getName(),
-                request.getAddress(),
-                request.getCity(),
-                request.getPostalCode(),
-                request.getCountry()
-        );
 
+        Client client = clientService.save(request);
         return new ResponseEntity<>(modelMapper.map(client, ClientDTO.class), HttpStatus.CREATED);
     }
 

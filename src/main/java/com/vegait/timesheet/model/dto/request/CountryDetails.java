@@ -1,14 +1,11 @@
 package com.vegait.timesheet.model.dto.request;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 public class CountryDetails {
-
-    @NotBlank
-
+    @NotEmpty(message = "Name can not be null or empty")
     private String countryCode;
-    @NotBlank
-
+    @NotEmpty(message = "Name can not be null or empty")
     private String name;
 
     public String getCountryCode() {
