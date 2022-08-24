@@ -134,3 +134,4 @@ javax.validation.ConstraintViolationException: getAll.letter: Maximum lenght of 
 2022-08-24 10:30:40,986 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
 2022-08-24 10:30:41,116 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
 2022-08-24 10:30:41,795 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-24 10:30:43,264 INFO com.vegait.timesheet.TimesheetApplication [main] Started TimesheetApplication in 5.216 seconds (JVM running for 5.986)
