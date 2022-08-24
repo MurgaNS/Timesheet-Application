@@ -8,8 +8,21 @@ import java.util.function.Function;
 public class ClientMapper {
 
     public static ClientDTO toDTO(Client client) {
-        ClientDTO clientDTO = new ClientDTO();
+        return getClientDTO(client);
+    }
 
+    public static Page<ClientDTO> toDTOs(Page<Client> clients) {
+
+        return clients.map(new Function<Client, ClientDTO>() {
+            @Override
+            public ClientDTO apply(Client client) {
+                return getClientDTO(client);
+            }
+        });
+    }
+
+    private static ClientDTO getClientDTO(Client client) {
+        ClientDTO clientDTO = new ClientDTO();
         clientDTO.setId(client.getId());
         clientDTO.setName(client.getName());
         clientDTO.setAddress(client.getAddress());
@@ -18,24 +31,6 @@ public class ClientMapper {
         clientDTO.setCountry(client.getCountry());
 
         return clientDTO;
-    }
-
-    public static Page<ClientDTO> toDTOs(Page<Client> clients) {
-
-        return clients.map(new Function<Client, ClientDTO>() {
-            @Override
-            public ClientDTO apply(Client client) {
-                ClientDTO clientDTO = new ClientDTO();
-                clientDTO.setId(client.getId());
-                clientDTO.setName(client.getName());
-                clientDTO.setAddress(client.getAddress());
-                clientDTO.setCity(client.getCity());
-                clientDTO.setPostalCode(client.getPostalCode());
-                clientDTO.setCountry(client.getCountry());
-
-                return clientDTO;
-            }
-        });
     }
 
 }
