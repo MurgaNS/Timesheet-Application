@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
@@ -15,7 +17,9 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
             "AND (:name IS NULL OR client.name LIKE CONCAT(:name, '%'))")
     Page<Client> filterAll(Pageable paging, String letter, String name);
 
-    Client findByName(String name);
+    @Transactional
+    void deleteClientById(Long id);
+
     boolean existsByName(String name);
 
 

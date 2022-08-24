@@ -1,5 +1,7 @@
 package com.vegait.timesheet.service.impl;
 
+import com.vegait.timesheet.exception.ClientExistsException;
+import com.vegait.timesheet.exception.NotFoundException;
 import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.Country;
 import com.vegait.timesheet.model.dto.request.ClientRequest;
@@ -7,10 +9,9 @@ import com.vegait.timesheet.model.dto.request.CountryDetails;
 import com.vegait.timesheet.repository.ClientRepository;
 import com.vegait.timesheet.repository.CountryRepository;
 import com.vegait.timesheet.service.ClientService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -25,16 +26,16 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<Client> getAll(Pageable pageable, String letter, String name) {
+    public Page<Client> getAll(Pageable pageable, String letter, String name) {
 
-        return clientRepository.filterAll(pageable, letter, name).getContent();
+        return clientRepository.filterAll(pageable, letter, name);
 
     }
 
     @Override
     public Client save(String name, String address, String city, String postalCode, CountryDetails countryDetails) {
         if (clientRepository.existsByName(name)) {
-            throw new RuntimeException("there cannot be 2 clients with the same name");
+            throw new ClientExistsException("There cannot be 2 clients with the same name");
         }
         Country country = countryRepository.findCountryByCountryCode(countryDetails.getCountryCode())
                 .orElse(countryRepository.save(
@@ -52,10 +53,14 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Client update(Long id, ClientRequest clientEditRequest) {
 
+        if (!clientRepository.existsById(id)) {
+            throw new ClientExistsException("Client doesn't exist.");
+        }
+
         Client clientForEdit = findById(id);
 
         if (clientForEdit == null) {
-            return null;
+            throw new NotFoundException("Client you want to edit is not found.");
         }
 
         clientForEdit.setName(clientEditRequest.getName());
@@ -63,27 +68,29 @@ public class ClientServiceImpl implements ClientService {
         clientForEdit.setCity(clientEditRequest.getCity());
 
         if (!clientForEdit.getCountry().getCountryCode().equals(clientEditRequest.getCountry().getCountryCode())) {
-            Country country = countryRepository.findCountryByCountryCode(clientEditRequest.getCountry().getCountryCode())
+            clientForEdit.setCountry( countryRepository.findCountryByCountryCode(clientEditRequest.getCountry().getCountryCode())
                     .orElse(countryRepository.save(
                                     new Country(
                                             clientEditRequest.getCountry().getName(),
                                             clientEditRequest.getCountry().getCountryCode())
                             )
-                    );
-
-            clientForEdit.setCountry(country);
+                    ));
         }
 
         clientForEdit.setPostalCode(clientEditRequest.getPostalCode());
 
-        clientForEdit = clientRepository.save(clientForEdit);
-        return clientForEdit;
+        return clientRepository.save(clientForEdit);
     }
 
 
     @Override
     public Client findById(Long id) {
         return clientRepository.findById(id).get();
+    }
+
+    @Override
+    public void deleteClientById(Long id) {
+        clientRepository.deleteClientById(id);
     }
 
 }

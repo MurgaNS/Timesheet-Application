@@ -1,6 +1,11 @@
 package com.vegait.timesheet.model.dto.request;
 
+import javax.validation.constraints.NotBlank;
+
 public class ClientRequest {
+
+    @NotBlank
+
     private String name;
     private String address;
     private String city;

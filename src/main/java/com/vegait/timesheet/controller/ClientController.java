@@ -1,14 +1,11 @@
 package com.vegait.timesheet.controller;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vegait.timesheet.mapper.ClientMapper;
 import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.dto.request.ClientRequest;
-import com.vegait.timesheet.model.dto.response.ClientResponse;
 import com.vegait.timesheet.model.dto.response.ClientDTO;
-import com.vegait.timesheet.repository.CountryRepository;
 import com.vegait.timesheet.service.ClientService;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,39 +13,28 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/clients")
 @Validated
 public class ClientController {
     private final ClientService clientService;
-
-    public ClientController(ClientService clientService, ModelMapper modelMapper, ObjectMapper objectMapper, CountryRepository countryRepository) {
-        this.clientService = clientService;
-        this.modelMapper = modelMapper;
-        this.objectMapper = objectMapper;
-        this.countryRepository = countryRepository;
-    }
-
     private final ModelMapper modelMapper;
 
-    private final ObjectMapper objectMapper;
-
-    private final CountryRepository countryRepository;
-
+    public ClientController(ClientService clientService, ModelMapper modelMapper) {
+        this.clientService = clientService;
+        this.modelMapper = modelMapper;
+    }
     @GetMapping
-    public ResponseEntity<List<ClientDTO>> getAll(Pageable pageable,
+    public ResponseEntity<Page<ClientDTO>> getAll(Pageable pageable,
                                                   @RequestParam(required = false) @Size(min = 1, max = 1, message = "Maximum lenght of letter can not be more or less than 1 ") String letter,
                                                   @RequestParam(required = false) String name) {
-        List<Client> client = clientService.getAll(pageable, letter, name);
 
-//        List<ClientDTO> clientDTO = modelMapper.map(client, new TypeToken<List<ClientDTO>>() {
-//        }.getType());
-        List<ClientDTO> clientDTO = objectMapper.convertValue(client, new TypeReference<>() {
-        });
-        return new ResponseEntity<>(clientDTO, HttpStatus.OK);
+        Page<Client> clients = clientService.getAll(pageable, letter, name);
+//        Page<ClientDTO> clientsDTO = objectMapper.convertValue(clients, new TypeReference<>() {});
 
+        Page<ClientDTO> clientsDTO = ClientMapper.toDTOs(clients);
+        return new ResponseEntity<>(clientsDTO, HttpStatus.OK);
 
     }
 
@@ -70,15 +56,29 @@ public class ClientController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClientResponse> update(@RequestBody ClientRequest clientRequest, @PathVariable Long id) {
-        Client editedClient = clientService.update(id, clientRequest);
+    public ResponseEntity<ClientDTO> update(@RequestBody ClientRequest clientRequest, @PathVariable Long id) {
+        try{
 
-        if (editedClient == null) {
+            Client editedClient = clientService.update(id, clientRequest);
+            ClientDTO response = modelMapper.map(editedClient, ClientDTO.class);
+
+            return new ResponseEntity<>(response, HttpStatus.OK);
+
+
+        } catch (Exception exception) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        ClientResponse response = modelMapper.map(editedClient, ClientResponse.class);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteClient(@PathVariable Long id) {
+
+        clientService.deleteClientById(id);
+
+
+    }
+
 
 
 }

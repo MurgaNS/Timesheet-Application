@@ -1,8 +1,14 @@
 package com.vegait.timesheet.model.dto.request;
 
+import javax.validation.constraints.NotBlank;
+
 public class CountryDetails {
 
+    @NotBlank
+
     private String countryCode;
+    @NotBlank
+
     private String name;
 
     public String getCountryCode() {

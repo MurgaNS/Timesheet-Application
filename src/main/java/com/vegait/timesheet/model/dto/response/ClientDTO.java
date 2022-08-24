@@ -1,13 +1,21 @@
 package com.vegait.timesheet.model.dto.response;
 import com.vegait.timesheet.model.Country;
+
+import javax.validation.constraints.NotBlank;
+
 public class ClientDTO {
 
     private Long id;
+    @NotBlank
     private String name;
     private String address;
     private String city;
     private String postalCode;
     private Country country;
+
+    public ClientDTO() {
+
+    }
 
     public Long getId() {
         return id;
