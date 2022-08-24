@@ -1,0 +1,136 @@
+2022-08-24 10:18:55,943 INFO com.vegait.timesheet.TimesheetApplication [main] Starting TimesheetApplication using Java 11.0.16 on inv412 with PID 3480 (C:\Users\nemanja.murgaski\IdeaProjects\timesheet\target\classes started by nemanja.murgaski in C:\Users\nemanja.murgaski\IdeaProjects\timesheet)
+2022-08-24 10:18:55,945 INFO com.vegait.timesheet.TimesheetApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-24 10:18:57,209 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2022-08-24 10:18:57,209 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-24 10:18:57,346 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2022-08-24 10:18:57,477 INFO org.flywaydb.core.internal.license.VersionPrinter [main] Flyway Community Edition 7.2.1 by Redgate
+2022-08-24 10:18:57,485 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-08-24 10:18:57,768 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-08-24 10:18:57,808 INFO org.flywaydb.core.internal.database.base.DatabaseType [main] Database: jdbc:mysql://localhost:3306/timesheet (MySQL 8.0)
+2022-08-24 10:18:57,849 INFO org.flywaydb.core.internal.command.DbValidate [main] Successfully validated 1 migration (execution time 00:00.018s)
+2022-08-24 10:18:57,859 INFO org.flywaydb.core.internal.command.DbMigrate [main] Current version of schema `timesheet`: 1
+2022-08-24 10:18:57,860 INFO org.flywaydb.core.internal.command.DbMigrate [main] Schema `timesheet` is up to date. No migration necessary.
+2022-08-24 10:18:57,933 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-24 10:18:58,016 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-24 10:18:58,212 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-24 10:18:58,341 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-08-24 10:18:58,905 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-24 10:19:00,368 INFO com.vegait.timesheet.TimesheetApplication [main] Started TimesheetApplication in 4.831 seconds (JVM running for 5.573)
+2022-08-24 10:19:38,849 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-08-24 10:19:38,860 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-08-24 10:19:44,581 INFO com.vegait.timesheet.TimesheetApplication [main] Starting TimesheetApplication using Java 11.0.16 on inv412 with PID 9528 (C:\Users\nemanja.murgaski\IdeaProjects\timesheet\target\classes started by nemanja.murgaski in C:\Users\nemanja.murgaski\IdeaProjects\timesheet)
+2022-08-24 10:19:44,584 INFO com.vegait.timesheet.TimesheetApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-24 10:19:46,000 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2022-08-24 10:19:46,001 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-24 10:19:46,125 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2022-08-24 10:19:46,238 INFO org.flywaydb.core.internal.license.VersionPrinter [main] Flyway Community Edition 7.2.1 by Redgate
+2022-08-24 10:19:46,244 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-08-24 10:19:46,530 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-08-24 10:19:46,566 INFO org.flywaydb.core.internal.database.base.DatabaseType [main] Database: jdbc:mysql://localhost:3306/timesheet (MySQL 8.0)
+2022-08-24 10:19:46,607 INFO org.flywaydb.core.internal.command.DbValidate [main] Successfully validated 1 migration (execution time 00:00.019s)
+2022-08-24 10:19:46,617 INFO org.flywaydb.core.internal.command.DbMigrate [main] Current version of schema `timesheet`: 1
+2022-08-24 10:19:46,618 INFO org.flywaydb.core.internal.command.DbMigrate [main] Schema `timesheet` is up to date. No migration necessary.
+2022-08-24 10:19:46,686 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-24 10:19:46,742 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-24 10:19:46,956 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-24 10:19:47,071 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-08-24 10:19:47,683 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-24 10:19:48,992 INFO com.vegait.timesheet.TimesheetApplication [main] Started TimesheetApplication in 4.821 seconds (JVM running for 5.627)
+2022-08-24 10:20:39,327 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-24 10:23:06,004 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-08-24 10:23:06,016 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-08-24 10:23:16,916 INFO com.vegait.timesheet.TimesheetApplication [main] Starting TimesheetApplication using Java 11.0.16 on inv412 with PID 13412 (C:\Users\nemanja.murgaski\IdeaProjects\timesheet\target\classes started by nemanja.murgaski in C:\Users\nemanja.murgaski\IdeaProjects\timesheet)
+2022-08-24 10:23:16,919 INFO com.vegait.timesheet.TimesheetApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-24 10:23:18,339 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2022-08-24 10:23:18,340 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-24 10:23:18,482 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2022-08-24 10:23:18,622 INFO org.flywaydb.core.internal.license.VersionPrinter [main] Flyway Community Edition 7.2.1 by Redgate
+2022-08-24 10:23:18,628 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-08-24 10:23:18,917 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-08-24 10:23:18,955 INFO org.flywaydb.core.internal.database.base.DatabaseType [main] Database: jdbc:mysql://localhost:3306/timesheet (MySQL 8.0)
+2022-08-24 10:23:18,995 INFO org.flywaydb.core.internal.command.DbValidate [main] Successfully validated 1 migration (execution time 00:00.018s)
+2022-08-24 10:23:19,005 INFO org.flywaydb.core.internal.command.DbMigrate [main] Current version of schema `timesheet`: 1
+2022-08-24 10:23:19,005 INFO org.flywaydb.core.internal.command.DbMigrate [main] Schema `timesheet` is up to date. No migration necessary.
+2022-08-24 10:23:19,085 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-24 10:23:19,142 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-24 10:23:19,314 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-24 10:23:19,444 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-08-24 10:23:20,029 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-24 10:23:22,088 INFO com.vegait.timesheet.TimesheetApplication [main] Started TimesheetApplication in 5.582 seconds (JVM running for 6.328)
+2022-08-24 10:27:45,535 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-24 10:28:05,342 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8080-exec-6] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is javax.validation.ConstraintViolationException: getAll.letter: Maximum lenght of letter can not be more or less than 1 ] with root cause
+javax.validation.ConstraintViolationException: getAll.letter: Maximum lenght of letter can not be more or less than 1 
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:120)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.vegait.timesheet.controller.ClientController$$EnhancerBySpringCGLIB$$3d125c0e.getAll(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-08-24 10:30:29,460 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-08-24 10:30:29,474 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-08-24 10:30:38,481 INFO com.vegait.timesheet.TimesheetApplication [main] Starting TimesheetApplication using Java 11.0.16 on inv412 with PID 12276 (C:\Users\nemanja.murgaski\IdeaProjects\timesheet\target\classes started by nemanja.murgaski in C:\Users\nemanja.murgaski\IdeaProjects\timesheet)
+2022-08-24 10:30:38,484 INFO com.vegait.timesheet.TimesheetApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-24 10:30:39,904 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2022-08-24 10:30:39,905 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-24 10:30:40,038 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2022-08-24 10:30:40,239 INFO org.flywaydb.core.internal.license.VersionPrinter [main] Flyway Community Edition 7.2.1 by Redgate
+2022-08-24 10:30:40,245 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-08-24 10:30:40,579 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-08-24 10:30:40,613 INFO org.flywaydb.core.internal.database.base.DatabaseType [main] Database: jdbc:mysql://localhost:3306/timesheet (MySQL 8.0)
+2022-08-24 10:30:40,655 INFO org.flywaydb.core.internal.command.DbValidate [main] Successfully validated 1 migration (execution time 00:00.019s)
+2022-08-24 10:30:40,665 INFO org.flywaydb.core.internal.command.DbMigrate [main] Current version of schema `timesheet`: 1
+2022-08-24 10:30:40,665 INFO org.flywaydb.core.internal.command.DbMigrate [main] Schema `timesheet` is up to date. No migration necessary.
+2022-08-24 10:30:40,734 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-24 10:30:40,819 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-24 10:30:40,986 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-24 10:30:41,116 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-08-24 10:30:41,795 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

@@ -4,7 +4,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.dto.request.ClientRequest;
+import com.vegait.timesheet.model.dto.response.ClientResponse;
 import com.vegait.timesheet.model.dto.response.ClientDTO;
+import com.vegait.timesheet.repository.CountryRepository;
 import com.vegait.timesheet.service.ClientService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;
@@ -22,16 +24,18 @@ import java.util.List;
 public class ClientController {
     private final ClientService clientService;
 
-    public ClientController(ClientService clientService, ModelMapper modelMapper, ObjectMapper objectMapper) {
+    public ClientController(ClientService clientService, ModelMapper modelMapper, ObjectMapper objectMapper, CountryRepository countryRepository) {
         this.clientService = clientService;
-
         this.modelMapper = modelMapper;
         this.objectMapper = objectMapper;
+        this.countryRepository = countryRepository;
     }
 
     private final ModelMapper modelMapper;
 
     private final ObjectMapper objectMapper;
+
+    private final CountryRepository countryRepository;
 
     @GetMapping
     public ResponseEntity<List<ClientDTO>> getAll(Pageable pageable,
@@ -62,6 +66,18 @@ public class ClientController {
         );
 
         return new ResponseEntity<>(modelMapper.map(client, ClientDTO.class), HttpStatus.CREATED);
+    }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ClientResponse> update(@RequestBody ClientRequest clientRequest, @PathVariable Long id) {
+        Client editedClient = clientService.update(id, clientRequest);
+
+        if (editedClient == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        ClientResponse response = modelMapper.map(editedClient, ClientResponse.class);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 

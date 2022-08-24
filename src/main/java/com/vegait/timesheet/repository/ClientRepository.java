@@ -18,4 +18,6 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     Client findByName(String name);
     boolean existsByName(String name);
 
+
+
 }
