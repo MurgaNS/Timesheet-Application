@@ -3,6 +3,7 @@ package com.vegait.timesheet.model.dto.request;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 public class ClientRequest {
@@ -13,6 +14,7 @@ public class ClientRequest {
     private String city;
     private String postalCode;
     @Valid
+    @NotNull(message = "Please enter country fields")
     private CountryDetails country;
 
     public String getName() {

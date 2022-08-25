@@ -1,7 +1,6 @@
 package com.vegait.timesheet.service.impl;
 
 import com.vegait.timesheet.exception.ClientExistsException;
-import com.vegait.timesheet.exception.NotFoundException;
 import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.Country;
 import com.vegait.timesheet.model.dto.request.ClientRequest;
@@ -51,13 +50,6 @@ public class ClientServiceImpl implements ClientService {
                     clientRequest.getCountry().getCountryCode()));
         }
 
-//        Country country = countryRepository.findCountryByCountryCode(clientRequest.getCountry().getCountryCode())
-//                .orElse(countryRepository.save(
-//                                new Country(
-//                                        clientRequest.getCountry().getName(),
-//                                        clientRequest.getCountry().getCountryCode())
-//                        )
-//                );
         Client client = modelMapper.map(clientRequest, Client.class);
         client.setCountry(country);
 

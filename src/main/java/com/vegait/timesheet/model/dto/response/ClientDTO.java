@@ -1,12 +1,9 @@
 package com.vegait.timesheet.model.dto.response;
 import com.vegait.timesheet.model.Country;
 
-import javax.validation.constraints.NotBlank;
-
 public class ClientDTO {
 
     private Long id;
-    @NotBlank(message = "Name can not be null or empty, please enter a valid name.")
     private String name;
     private String address;
     private String city;
