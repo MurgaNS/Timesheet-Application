@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 @RestController
@@ -37,7 +38,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDTO> add(@RequestBody ClientRequest request) {
+    public ResponseEntity<ClientDTO> add(@Valid @RequestBody ClientRequest request) {
 
         Client client = clientService.save(request);
         return new ResponseEntity<>(modelMapper.map(client, ClientDTO.class), HttpStatus.CREATED);
@@ -45,7 +46,7 @@ public class ClientController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClientDTO> update(@RequestBody ClientRequest clientRequest, @PathVariable Long id) {
+    public ResponseEntity<ClientDTO> update(@Valid @RequestBody ClientRequest clientRequest, @PathVariable Long id) {
         try{
 
             Client editedClient = clientService.update(id, clientRequest);

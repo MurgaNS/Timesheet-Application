@@ -1,14 +1,18 @@
 package com.vegait.timesheet.model.dto.request;
 
+
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+
 
 public class ClientRequest {
 
-    @NotEmpty(message = "Name can not be null or empty")
+    @NotEmpty(message = "Name can not be null or empty, please enter correct name.")
     private String name;
     private String address;
     private String city;
     private String postalCode;
+    @Valid
     private CountryDetails country;
 
     public String getName() {
