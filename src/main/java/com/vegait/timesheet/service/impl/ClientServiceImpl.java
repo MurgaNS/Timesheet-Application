@@ -13,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ClientServiceImpl implements ClientService {
 
@@ -41,13 +43,21 @@ public class ClientServiceImpl implements ClientService {
         if (clientRepository.existsByName(clientRequest.getName())) {
             throw new ClientExistsException("There cannot be 2 clients with the same name");
         }
-        Country country = countryRepository.findCountryByCountryCode(clientRequest.getCountry().getCountryCode())
-                .orElse(countryRepository.save(
-                                new Country(
-                                        clientRequest.getCountry().getName(),
-                                        clientRequest.getCountry().getCountryCode())
-                        )
-                );
+
+        Country country = countryRepository.findCountryByCountryCode(clientRequest.getCountry().getCountryCode());
+
+        if (country == null) {
+            country = countryRepository.save(new Country(clientRequest.getCountry().getName(),
+                    clientRequest.getCountry().getCountryCode()));
+        }
+
+//        Country country = countryRepository.findCountryByCountryCode(clientRequest.getCountry().getCountryCode())
+//                .orElse(countryRepository.save(
+//                                new Country(
+//                                        clientRequest.getCountry().getName(),
+//                                        clientRequest.getCountry().getCountryCode())
+//                        )
+//                );
         Client client = modelMapper.map(clientRequest, Client.class);
         client.setCountry(country);
 
@@ -64,24 +74,18 @@ public class ClientServiceImpl implements ClientService {
 
         Client clientForEdit = findById(id);
 
-        if (clientForEdit == null) {
-            throw new NotFoundException("Client you want to edit is not found.");
-        }
-
         clientForEdit.setName(clientEditRequest.getName());
         clientForEdit.setAddress(clientEditRequest.getAddress());
         clientForEdit.setCity(clientEditRequest.getCity());
 
-        if (!clientForEdit.getCountry().getCountryCode().equals(clientEditRequest.getCountry().getCountryCode())) {
-            clientForEdit.setCountry( countryRepository.findCountryByCountryCode(clientEditRequest.getCountry().getCountryCode())
-                    .orElse(countryRepository.save(
-                                    new Country(
-                                            clientEditRequest.getCountry().getName(),
-                                            clientEditRequest.getCountry().getCountryCode())
-                            )
-                    ));
+        Country country = countryRepository.findCountryByCountryCode(clientEditRequest.getCountry().getCountryCode());
+
+        if (country == null) {
+            country = countryRepository.save(new Country(clientEditRequest.getCountry().getName(),
+                    clientEditRequest.getCountry().getCountryCode()));
         }
 
+        clientForEdit.setCountry(country);
         clientForEdit.setPostalCode(clientEditRequest.getPostalCode());
 
         return clientRepository.save(clientForEdit);
@@ -90,11 +94,11 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client findById(Long id) {
-        if (!clientRepository.existsById(id)) {
+        Optional<Client> client = clientRepository.findById(id);
+        if (client.isEmpty()) {
             throw new ClientExistsException("Client doesn't exist.");
         }
-
-        return clientRepository.findById(id).get();
+        return client.get();
     }
 
     @Override

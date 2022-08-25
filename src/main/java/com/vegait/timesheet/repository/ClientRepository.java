@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
@@ -21,6 +23,8 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     @Modifying
     @Query(nativeQuery = true, value = "UPDATE client SET is_deleted = 1 WHERE client.id =?")
     void deleteById(Long id);
+
+    Optional<Client> findById(Long id);
 
 
 
