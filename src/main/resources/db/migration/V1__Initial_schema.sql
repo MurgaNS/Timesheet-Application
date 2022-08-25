@@ -23,6 +23,7 @@ CREATE table client
     city        VARCHAR(40),
     postal_code VARCHAR(20),
     country_id  BIGINT,
+    is_deleted boolean DEFAULT FALSE NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT FK__client_country_id FOREIGN KEY (country_id)
         REFERENCES country (id)

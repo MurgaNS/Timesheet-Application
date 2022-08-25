@@ -38,7 +38,6 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Client save(ClientRequest clientRequest) {
 
-
         if (clientRepository.existsByName(clientRequest.getName())) {
             throw new ClientExistsException("There cannot be 2 clients with the same name");
         }
@@ -91,12 +90,16 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client findById(Long id) {
+        if (!clientRepository.existsById(id)) {
+            throw new ClientExistsException("Client doesn't exist.");
+        }
+
         return clientRepository.findById(id).get();
     }
 
     @Override
-    public void deleteClientById(Long id) {
-        clientRepository.deleteClientById(id);
+    public void deleteById(Long id) {
+        clientRepository.deleteById(id);
     }
 
 }

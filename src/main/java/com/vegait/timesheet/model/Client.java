@@ -9,9 +9,11 @@ public class Client extends Base {
     private String address;
     private String city;
     private String postalCode;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id",referencedColumnName = "id")
     private Country country;
+
+    private boolean isDeleted;
 
     public Client(String name, String address, String city, String postalCode, Country country) {
         super(name);
@@ -23,6 +25,15 @@ public class Client extends Base {
 
     public Client() {
 
+    }
+
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 
     public String getAddress() {
