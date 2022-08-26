@@ -17,8 +17,19 @@ public class ClientRequest {
     @NotNull(message = "Please enter country fields")
     private CountryDetails country;
 
+    @NotNull
+    private Integer version;
+
     public String getName() {
         return name;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     public void setName(String name) {

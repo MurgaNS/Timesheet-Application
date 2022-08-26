@@ -1,5 +1,6 @@
 package com.vegait.timesheet.service.impl;
 
+import com.vegait.timesheet.exception.CheckVersionException;
 import com.vegait.timesheet.exception.ClientExistsException;
 import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.Country;
@@ -8,15 +9,21 @@ import com.vegait.timesheet.repository.ClientRepository;
 import com.vegait.timesheet.repository.CountryRepository;
 import com.vegait.timesheet.service.ClientService;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import java.util.Optional;
 
 @Service
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(Client.class);
+
 
     private final CountryRepository countryRepository;
 
@@ -65,6 +72,12 @@ public class ClientServiceImpl implements ClientService {
 
         Client clientForEdit = findById(id);
 
+        if (clientForEdit.getVersion().equals(clientEditRequest.getVersion())) {
+            throw new CheckVersionException("You can't make changes because of the newer version");
+
+        }
+
+
         clientForEdit.setName(clientEditRequest.getName());
         clientForEdit.setAddress(clientEditRequest.getAddress());
         clientForEdit.setCity(clientEditRequest.getCity());
@@ -94,6 +107,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void deleteById(Long id) {
+        LOGGER.info("Client with id" + id + " is deleted ");
         clientRepository.deleteById(id);
     }
 

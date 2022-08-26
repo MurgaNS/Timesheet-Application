@@ -5,6 +5,7 @@ import com.vegait.timesheet.model.dto.request.ClientRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+
 public interface ClientService {
     Page<Client> getAll(Pageable pageable, String letter, String name);
 
@@ -15,6 +16,7 @@ public interface ClientService {
     Client findById(Long id);
 
     void deleteById(Long id);
+
 
 
 }
