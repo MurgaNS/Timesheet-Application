@@ -1,8 +1,7 @@
 package com.vegait.timesheet.model;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
+import javax.persistence.*;
+
 
 @Entity
 public class Client extends Base {
@@ -14,6 +13,9 @@ public class Client extends Base {
     private Country country;
 
     private boolean isDeleted;
+
+    @Version
+    private Integer version;
 
     public Client(String name, String address, String city, String postalCode, Country country) {
         super(name);
@@ -27,6 +29,13 @@ public class Client extends Base {
 
     }
 
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
     public boolean isDeleted() {
         return isDeleted;

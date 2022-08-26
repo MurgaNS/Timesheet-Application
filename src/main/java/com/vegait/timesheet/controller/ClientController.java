@@ -52,6 +52,7 @@ public class ClientController {
 
 
     @PutMapping("/{id}")
+//    @Lock(LockModeType.OPTIMISTIC_FORCE_INCREMENT)
     public ResponseEntity<ClientDTO> update(@Valid @RequestBody ClientRequest clientRequest, @PathVariable Long id) {
         try{
 
