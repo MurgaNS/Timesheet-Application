@@ -8,7 +8,6 @@ import com.vegait.timesheet.model.dto.request.ClientRequest;
 import com.vegait.timesheet.repository.ClientRepository;
 import com.vegait.timesheet.repository.CountryRepository;
 import com.vegait.timesheet.service.ClientService;
-import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -27,12 +26,9 @@ public class ClientServiceImpl implements ClientService {
 
     private final CountryRepository countryRepository;
 
-    private final ModelMapper modelMapper;
-
-    public ClientServiceImpl(ClientRepository clientRepository, CountryRepository countryRepository, ModelMapper modelMapper) {
+    public ClientServiceImpl(ClientRepository clientRepository, CountryRepository countryRepository) {
         this.clientRepository = clientRepository;
         this.countryRepository = countryRepository;
-        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -49,17 +45,23 @@ public class ClientServiceImpl implements ClientService {
             throw new ClientExistsException("There cannot be 2 clients with the same name");
         }
 
-        Country country = countryRepository.findCountryByCountryCode(clientRequest.getCountry().getCountryCode());
+        Country country = countryRepository.findCountryByCountryCode(clientRequest.getCountry().getCountryCode())
+                .orElseGet(() -> countryRepository.save(
+                                new Country(
+                                        clientRequest.getCountry().getName(),
+                                        clientRequest.getCountry().getCountryCode())
+                        )
+                );
 
-        if (country == null) {
-            country = countryRepository.save(new Country(clientRequest.getCountry().getName(),
-                    clientRequest.getCountry().getCountryCode()));
-        }
+        Client newClient = new Client(
+                clientRequest.getName(),
+                clientRequest.getAddress(),
+                clientRequest.getCity(),
+                clientRequest.getPostalCode(),
+                country
+        );
 
-        Client client = modelMapper.map(clientRequest, Client.class);
-        client.setCountry(country);
-
-        return clientRepository.save(client);
+        return clientRepository.save(newClient);
 
     }
 
@@ -77,20 +79,20 @@ public class ClientServiceImpl implements ClientService {
 
         }
 
+        if (!clientForEdit.getCountry().getName().equals(clientEditRequest.getCountry().getName())) {
+            Country country = countryRepository.findCountryByCountryCode(clientEditRequest.getCountry().getCountryCode())
+                    .orElseGet(() -> countryRepository.save(
+                                    new Country(
+                                            clientEditRequest.getCountry().getName(),
+                                            clientEditRequest.getCountry().getCountryCode())
+                            )
+                    );
+            clientForEdit.setCountry(country);
 
-        clientForEdit.setName(clientEditRequest.getName());
-        clientForEdit.setAddress(clientEditRequest.getAddress());
-        clientForEdit.setCity(clientEditRequest.getCity());
-
-        Country country = countryRepository.findCountryByCountryCode(clientEditRequest.getCountry().getCountryCode());
-
-        if (country == null) {
-            country = countryRepository.save(new Country(clientEditRequest.getCountry().getName(),
-                    clientEditRequest.getCountry().getCountryCode()));
         }
 
-        clientForEdit.setCountry(country);
-        clientForEdit.setPostalCode(clientEditRequest.getPostalCode());
+        clientForEdit.updateClient(clientEditRequest);
+
 
         return clientRepository.save(clientForEdit);
     }

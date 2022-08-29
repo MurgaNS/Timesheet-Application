@@ -1,5 +1,7 @@
 package com.vegait.timesheet.model;
 
+import com.vegait.timesheet.model.dto.request.ClientRequest;
+
 import javax.persistence.*;
 
 
@@ -9,7 +11,7 @@ public class Client extends Base {
     private String city;
     private String postalCode;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "country_id",referencedColumnName = "id")
+    @JoinColumn(name = "country_id", referencedColumnName = "id")
     private Country country;
 
     private boolean isDeleted;
@@ -24,6 +26,26 @@ public class Client extends Base {
         this.postalCode = postalCode;
         this.country = country;
     }
+
+    public Client(String name, String address, String city, String postalCode, Country country, boolean isDeleted, Integer version) {
+        super(name);
+        this.address = address;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.isDeleted = isDeleted;
+        this.version = version;
+    }
+
+    public void updateClient(ClientRequest clientEditRequest) {
+        this.name = clientEditRequest.getName();
+        this.address = clientEditRequest.getAddress();
+        this.city = clientEditRequest.getCity();
+        this.postalCode = clientEditRequest.getPostalCode();
+
+
+    }
+
 
     public Client() {
 
