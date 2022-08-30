@@ -2,6 +2,7 @@ package com.vegait.timesheet.service.impl;
 
 import com.vegait.timesheet.exception.CheckVersionException;
 import com.vegait.timesheet.exception.ClientExistsException;
+import com.vegait.timesheet.exception.ClientNameExistException;
 import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.Country;
 import com.vegait.timesheet.model.dto.request.ClientRequest;
@@ -67,6 +68,10 @@ public class ClientServiceImpl implements ClientService {
         }
 
         Client clientForEdit = findById(id);
+
+        if (clientRepository.existsByName(clientEditRequest.getName())) {
+            throw new ClientNameExistException("Client with that name already exists");
+        }
 
         if (clientForEdit.getVersion().equals(clientEditRequest.getVersion())) {
             throw new CheckVersionException("You can't make changes because of the newer version");

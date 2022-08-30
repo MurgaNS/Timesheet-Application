@@ -5,7 +5,6 @@ import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.dto.request.ClientRequest;
 import com.vegait.timesheet.model.dto.response.ClientDTO;
 import com.vegait.timesheet.service.ClientService;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -29,11 +28,9 @@ import javax.validation.constraints.Size;
 public class ClientController {
 
     private final ClientService clientService;
-    private final ModelMapper modelMapper;
 
-    public ClientController(ClientService clientService, ModelMapper modelMapper) {
+    public ClientController(ClientService clientService) {
         this.clientService = clientService;
-        this.modelMapper = modelMapper;
     }
 
     @GetMapping
@@ -52,14 +49,15 @@ public class ClientController {
     @PostMapping
     public ResponseEntity<ClientDTO> add(@Valid @RequestBody ClientRequest request) {
         Client client = clientService.save(request);
+        ClientDTO clientDTO = ClientMapper.toDTO(client);
 
-        return new ResponseEntity<>(modelMapper.map(client, ClientDTO.class), HttpStatus.CREATED);
+        return new ResponseEntity<>(clientDTO, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ClientDTO> update(@Valid @RequestBody ClientRequest clientRequest, @PathVariable Long id) {
         Client editedClient = clientService.update(id, clientRequest);
-        ClientDTO response = modelMapper.map(editedClient, ClientDTO.class);
+        ClientDTO response = ClientMapper.toDTO(editedClient);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
