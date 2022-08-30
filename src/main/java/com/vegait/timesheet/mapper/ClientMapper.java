@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 public class ClientMapper {
 
     public static ClientDTO toDTO(Client client) {
+
         return getClientDTO(client);
     }
 

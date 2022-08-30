@@ -13,7 +13,6 @@ public class Country extends Base {
     }
 
     public Country() {
-
     }
 
     public String getCountryCode() {

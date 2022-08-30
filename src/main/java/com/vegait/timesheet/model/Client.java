@@ -1,21 +1,22 @@
 package com.vegait.timesheet.model;
 
 import com.vegait.timesheet.model.dto.request.ClientRequest;
-
-import javax.persistence.*;
-
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 
 @Entity
 public class Client extends Base {
+
     private String address;
     private String city;
     private String postalCode;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id", referencedColumnName = "id")
     private Country country;
-
     private boolean isDeleted;
-
     @Version
     private Integer version;
 
@@ -42,13 +43,10 @@ public class Client extends Base {
         this.address = clientEditRequest.getAddress();
         this.city = clientEditRequest.getCity();
         this.postalCode = clientEditRequest.getPostalCode();
-
-
     }
 
 
     public Client() {
-
     }
 
     public Integer getVersion() {

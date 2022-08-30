@@ -11,7 +11,6 @@ public class ClientDTO {
     private Country country;
 
     public ClientDTO() {
-
     }
 
     public Long getId() {

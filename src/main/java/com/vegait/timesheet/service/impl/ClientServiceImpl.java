@@ -13,17 +13,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
-
     private final static Logger LOGGER = LoggerFactory.getLogger(Client.class);
-
-
     private final CountryRepository countryRepository;
 
     public ClientServiceImpl(ClientRepository clientRepository, CountryRepository countryRepository) {
@@ -35,7 +31,6 @@ public class ClientServiceImpl implements ClientService {
     public Page<Client> getAll(Pageable pageable, String letter, String name) {
 
         return clientRepository.filterAll(pageable, letter, name);
-
     }
 
     @Override
@@ -62,7 +57,6 @@ public class ClientServiceImpl implements ClientService {
         );
 
         return clientRepository.save(newClient);
-
     }
 
     @Override
@@ -76,7 +70,6 @@ public class ClientServiceImpl implements ClientService {
 
         if (clientForEdit.getVersion().equals(clientEditRequest.getVersion())) {
             throw new CheckVersionException("You can't make changes because of the newer version");
-
         }
 
         if (!clientForEdit.getCountry().getName().equals(clientEditRequest.getCountry().getName())) {
@@ -88,11 +81,8 @@ public class ClientServiceImpl implements ClientService {
                             )
                     );
             clientForEdit.setCountry(country);
-
         }
-
         clientForEdit.updateClient(clientEditRequest);
-
 
         return clientRepository.save(clientForEdit);
     }
@@ -104,6 +94,7 @@ public class ClientServiceImpl implements ClientService {
         if (client.isEmpty()) {
             throw new ClientExistsException("Client doesn't exist.");
         }
+
         return client.get();
     }
 

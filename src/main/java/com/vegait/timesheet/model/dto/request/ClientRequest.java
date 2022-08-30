@@ -1,10 +1,8 @@
 package com.vegait.timesheet.model.dto.request;
 
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
 
 public class ClientRequest {
 
@@ -16,7 +14,6 @@ public class ClientRequest {
     @Valid
     @NotNull(message = "Please enter country fields")
     private CountryDetails country;
-
     @NotNull
     private Integer version;
 
