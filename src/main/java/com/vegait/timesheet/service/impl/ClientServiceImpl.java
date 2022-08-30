@@ -69,11 +69,11 @@ public class ClientServiceImpl implements ClientService {
 
         Client clientForEdit = findById(id);
 
-        if (clientRepository.existsByName(clientEditRequest.getName())) {
+        if (clientRepository.existsByNameAndIdNot(clientEditRequest.getName(), id)) {
             throw new ClientNameExistException("Client with that name already exists");
         }
 
-        if (clientForEdit.getVersion().equals(clientEditRequest.getVersion())) {
+        if (!clientForEdit.getVersion().equals(clientEditRequest.getVersion())) {
             throw new CheckVersionException("You can't make changes because of the newer version");
         }
 

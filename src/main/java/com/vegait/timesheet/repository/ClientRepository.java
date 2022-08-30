@@ -19,6 +19,8 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
     boolean existsByName(String name);
 
+    boolean existsByNameAndIdNot(String name, Long id);
+
     @Modifying
     @Query(nativeQuery = true, value = "UPDATE client SET is_deleted = 1 WHERE client.id =?")
     void deleteById(Long id);

@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import java.util.HashMap;
@@ -36,4 +37,33 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(CheckVersionException.class)
+    public ResponseEntity < ErrorDetails > userNotFoundException(CheckVersionException ex) {
+
+        ErrorDetails errorModel = new ErrorDetails(HttpStatus.BAD_REQUEST, ex.getMessage());
+
+        return new ResponseEntity <> (errorModel, HttpStatus.BAD_REQUEST);
+
+    }
+
+    @ExceptionHandler(ClientExistsException.class)
+    public ResponseEntity < ErrorDetails > userNotFoundException(ClientExistsException ex) {
+
+        ErrorDetails errorModel = new ErrorDetails(HttpStatus.NOT_FOUND, ex.getMessage());
+
+        return new ResponseEntity <> (errorModel, HttpStatus.NOT_FOUND);
+
+    }
+    @ExceptionHandler(ClientNameExistException.class)
+    public ResponseEntity < ErrorDetails > userNotFoundException(ClientNameExistException ex) {
+
+        ErrorDetails errorModel = new ErrorDetails(HttpStatus.BAD_REQUEST, ex.getMessage());
+
+        return new ResponseEntity <> (errorModel, HttpStatus.BAD_REQUEST);
+
+    }
+
+
+
 }
