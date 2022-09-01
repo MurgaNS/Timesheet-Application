@@ -14,7 +14,8 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Query(value = "SELECT client from Client client " +
             "WHERE (:letter IS NULL OR client.name LIKE CONCAT(:letter, '%')) " +
-            "AND (:name IS NULL OR client.name LIKE CONCAT(:name, '%'))")
+            "AND (:name IS NULL OR client.name LIKE CONCAT(:name, '%'))" +
+            "AND client.isDeleted = false ")
     Page<Client> filterAll(Pageable paging, String letter, String name);
 
     boolean existsByName(String name);
