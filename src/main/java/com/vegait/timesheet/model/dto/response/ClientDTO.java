@@ -9,6 +9,7 @@ public class ClientDTO {
     private String city;
     private String postalCode;
     private Country country;
+    private Integer version;
 
     public ClientDTO() {
     }
@@ -35,6 +36,14 @@ public class ClientDTO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     public String getCity() {
