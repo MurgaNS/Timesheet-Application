@@ -3,6 +3,7 @@ package com.vegait.timesheet.controller;
 import com.vegait.timesheet.mapper.ClientMapper;
 import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.dto.request.ClientRequest;
+import com.vegait.timesheet.model.dto.request.UpdateClientRequest;
 import com.vegait.timesheet.model.dto.response.ClientDTO;
 import com.vegait.timesheet.service.ClientService;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
@@ -51,15 +53,16 @@ public class ClientController {
 
     @CrossOrigin
     @PostMapping
-    public ResponseEntity<ClientDTO> add(@Valid @RequestBody ClientRequest request) {
-        Client client = clientService.save(request);
+    public ResponseEntity<ClientDTO> add(@Valid @RequestBody ClientRequest clientRequest) {
+        Client client = clientService.save(clientRequest);
         ClientDTO clientDTO = ClientMapper.toDTO(client);
 
         return new ResponseEntity<>(clientDTO, HttpStatus.CREATED);
     }
 
+    @CrossOrigin
     @PutMapping("/{id}")
-    public ResponseEntity<ClientDTO> update(@Valid @RequestBody ClientRequest clientRequest, @PathVariable Long id) {
+    public ResponseEntity<ClientDTO> update(@Valid @RequestBody UpdateClientRequest clientRequest, @PathVariable Long id) {
         Client editedClient = clientService.update(id, clientRequest);
         ClientDTO response = ClientMapper.toDTO(editedClient);
 

@@ -7,26 +7,16 @@ import javax.validation.constraints.NotNull;
 public class ClientRequest {
 
     @NotEmpty(message = "Name can not be null or empty, please enter correct name.")
-    private String name;
-    private String address;
-    private String city;
-    private String postalCode;
+    protected String name;
+    protected String address;
+    protected String city;
+    protected String postalCode;
     @Valid
     @NotNull(message = "Please enter country fields")
-    private CountryDetails country;
-    @NotNull
-    private Integer version;
+    protected CountryDetails country;
 
     public String getName() {
         return name;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
     }
 
     public void setName(String name) {

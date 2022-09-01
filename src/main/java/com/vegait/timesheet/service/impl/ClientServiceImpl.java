@@ -6,6 +6,7 @@ import com.vegait.timesheet.exception.ClientNameExistException;
 import com.vegait.timesheet.model.Client;
 import com.vegait.timesheet.model.Country;
 import com.vegait.timesheet.model.dto.request.ClientRequest;
+import com.vegait.timesheet.model.dto.request.UpdateClientRequest;
 import com.vegait.timesheet.repository.ClientRepository;
 import com.vegait.timesheet.repository.CountryRepository;
 import com.vegait.timesheet.service.ClientService;
@@ -61,7 +62,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client update(Long id, ClientRequest clientEditRequest) {
+    public Client update(Long id, UpdateClientRequest clientEditRequest) {
 
         if (!clientRepository.existsById(id)) {
             throw new ClientExistsException("Client doesn't exist.");
