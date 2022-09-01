@@ -7,8 +7,6 @@ public class UpdateClientRequest extends ClientRequest {
     @NotNull(message = "Version can not be null")
     private Integer version;
 
-
-
     public Integer getVersion() {
         return version;
     }
