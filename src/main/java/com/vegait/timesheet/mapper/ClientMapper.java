@@ -24,6 +24,7 @@ public class ClientMapper {
         clientDTO.setCity(client.getCity());
         clientDTO.setPostalCode(client.getPostalCode());
         clientDTO.setCountry(client.getCountry());
+        clientDTO.setVersion(client.getVersion());
 
         return clientDTO;
     }

@@ -26,6 +26,7 @@ public class Client extends Base {
         this.city = city;
         this.postalCode = postalCode;
         this.country = country;
+
     }
 
     public Client(String name, String address, String city, String postalCode, Country country, boolean isDeleted, Integer version) {

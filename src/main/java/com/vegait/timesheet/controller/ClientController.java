@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,8 @@ public class ClientController {
         this.clientService = clientService;
     }
 
+
+    @CrossOrigin
     @GetMapping
     public ResponseEntity<Page<ClientDTO>> getAll(
             Pageable pageable,
@@ -46,6 +49,7 @@ public class ClientController {
         return new ResponseEntity<>(clientsDTO, HttpStatus.OK);
     }
 
+    @CrossOrigin
     @PostMapping
     public ResponseEntity<ClientDTO> add(@Valid @RequestBody ClientRequest request) {
         Client client = clientService.save(request);
@@ -62,6 +66,7 @@ public class ClientController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Client> deleteClient(@PathVariable Long id) {
         clientService.deleteById(id);
