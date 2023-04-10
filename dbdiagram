@@ -1,0 +1,90 @@
+Table client {
+  id long [pk,increment]
+  name varchar [not null, unique]
+  address varchar
+  city varchar
+  postal_code varchar
+  country long [ref: > public.country.id]
+
+}
+
+Table project_employee {
+  project_id long [ref: > public.project.id]
+  employee_id long [ref: > public.employee.id]
+}
+
+Table lead_employee {
+  project_id long [ref: > public.project.id]
+  employee_id long [ref: > public.employee.id]
+}
+
+
+Table project {
+  id long [pk]
+  name varchar
+  description varchar
+  client_id long [ref: > public.client.id]
+  status projects_status
+    Indexes {
+    (name, client_id) [unique]
+  }
+}
+
+Table employee {
+  id long [pk,increment]
+  name varchar
+  username varchar
+  password varchar
+  hours_per_week double [note: 'The number of hours per week can not be less than 0.5']
+  email varchar [not null]
+  status employee_status
+  role employee_role
+      Indexes {
+      (email) [unique]
+    }
+
+}
+
+Enum project_status {
+  active
+  inactive
+  archived
+
+}
+
+Enum employee_status {
+  active
+  inactive
+
+}
+
+Enum employee_role {
+  admin
+  worker
+
+}
+
+Table category {
+  id long [pk,increment]
+  name varchar [not null, unique]
+}
+
+Table work_log {
+  id long [pk,increment]
+  date date
+  client_id long [ref: > client.id]
+  project_id long [ref: > project.id]
+  category_id long [ref: > category.id]
+  description varchar
+  hours double [note: 'The number of hours can not be less than 0.5']
+  overtime double [note: 'The number of overtime hours can not be less than 0.5']
+
+
+}
+
+Table country {
+  id long [pk, increment]
+  country_code varchar [unique]
+  name varchar [unique]
+
+}
